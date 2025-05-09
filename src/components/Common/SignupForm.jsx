@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import "../../styles/common.css";
-
 
 function SignupForm({ onSubmit }) {
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
     email: '',
+    instituteName:'',
+    proof: null,
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files ? files[0] : value,
+    });
   };
 
   const handleSubmit = (e) => {
@@ -21,47 +24,55 @@ function SignupForm({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label>Full Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label>Confirm Password:</label>
-        <input
-          type="password"
-          name="confirmPassword"
-          value={formData.confirmPassword}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
+    <form className="signup-form" onSubmit={handleSubmit}>
+      <label htmlFor="username">Username:</label>
+      <input
+        type="text"
+        name="fullName"
+        placeholder="Full Name"
+        required
+        onChange={handleChange}
+      />
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required
+        onChange={handleChange}
+      />
+      <label htmlFor="instituteName">Name of the institution:</label>
+      <input
+        type="text"
+        name="instituteName"
+        placeholder="Name of the institution"
+        required
+        onChange={handleChange}
+      />
+     <label htmlFor="file">Upload document:</label>
+      <input
+        type="file"
+        name="proof"
+        accept=".pdf,.jpg,.png"
+        required
+        onChange={handleChange}
+      />
+      <label htmlFor="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+        onChange={handleChange}
+      />
+      <label htmlFor="password">Confirm Password:</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        required
+        onChange={handleChange}
+      />
       <button type="submit">Sign Up</button>
     </form>
   );

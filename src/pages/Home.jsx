@@ -33,11 +33,7 @@ function Home() {
     <p>
       Say goodbye to paperwork and disconnected systems. EduPortal brings everything you need to manage your institution in one intelligent platform.
     </p>
-    <ul className="features-list">
-      <li> <i>Centralized student records</i></li>
-      <li> <i>Instant communication between staff, students, and parents</i></li>
-      <li> <i>Customizable modules tailored to your school’s workflow</i></li>
-    </ul>
+   
     <p>
       Trusted by educators. Designed for performance. Built for the future of learning.
     </p>

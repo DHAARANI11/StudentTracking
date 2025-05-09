@@ -121,3 +121,28 @@ body {
   border: 1px solid #333;
   border-radius: 10px;
 }
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup-form input,
+.signup-form select,
+.signup-form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.signup-form button {
+  background-color: #4e54c8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background-color: #3b3fc1;
+}
