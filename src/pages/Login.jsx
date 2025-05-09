@@ -74,7 +74,7 @@ function Login() {
     <div className="admin-auth-container">
       <div className="login-card">
         <div className="login-header">
-          <h1 className="login-title">School Portal Login</h1>
+          <h1 className="login-title">Login</h1>
           <p className="login-subtitle">Access your educational resources</p>
         </div>
 
