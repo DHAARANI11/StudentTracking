@@ -21,7 +21,7 @@ function AdminSignup() {
       <h2>Admin Signup</h2>
       {error && <p className="error">{error}</p>}
       <SignupForm onSubmit={handleSignup} />
-      <p>Already have an account? <a href="/admin/login">Login</a></p>
+      <p>Already have an account? <a href="/login">Login</a></p>
     </div>
   );
 }
