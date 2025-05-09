@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../components/Common/LoginForm';
-import '../styles/student.css';
+import '../styles/admin.css';
 
 // Hardcoded student credentials
 const studentCredentials = [

@@ -5,6 +5,7 @@ import Attendance from './Attendance';
 import LeaveRequest from './LeaveRequest';
 import Profile from './Profile';
 import "../../styles/staff.css";
+import Footer from '../Common/Footer';
 
 
 function StaffDashboard() {
@@ -29,6 +30,7 @@ function StaffDashboard() {
         {activeTab === 'leave' && <LeaveRequest />}
         {activeTab === 'profile' && <Profile />}
       </main>
+      <Footer/>
     </div>
   );
 }

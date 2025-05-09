@@ -26,9 +26,12 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/staff/dashboard" element={<StaffDashboard />} />
           <Route path="/student/dashboard" element={<StudentDashboard />} />
+          <Route path="/student/studentsubjects" element={<AttendanceStats />} />
           <Route path="/student/attendancestats" element={<AttendanceStats />} />
           <Route path="/student/leavehistory" element={<LeaveHistory />} />
           <Route path="/staff/leaverequest" element={<LeaveRequests />} />
+          <Route path="/student/assessmentdetails" element={<AttendanceStats />} />
+          <Route path="/student/homework" element={<AttendanceStats />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

@@ -1,145 +1,493 @@
+/* === Global === */
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #000;
-  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
+  background: linear-gradient(to right, #0d0d2b, #1c1c3a);
+  color: #ffffff;
 }
 
+/* === Landing Container === */
 .landing-container {
-  min-height: 100vh;
-  background: #000;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
-  background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png'); /* optional subtle texture */
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
 }
 
+/* === Content Wrapper === */
 .content-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  background: #1f1f2f;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  max-width: 1000px;
   width: 100%;
-  max-width: 1200px;
-  gap: 3rem;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
-/* Left Section */
+/* === Left Section === */
 .left-section {
   flex: 1;
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #2a2a3d;
 }
 
 .left-section h1 {
-  font-size: 4rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  color: #f1f1f1;
+  margin-bottom: 20px;
 }
 
-.left-section h1 span {
-  color: #fff;
-}
-
-.search-box {
-  margin: 2rem 0;
-  display: flex;
-  background: #111;
-  border-radius: 50px;
-  overflow: hidden;
-  border: 1px solid #333;
-}
-
-.search-box input {
-  flex: 1;
-  padding: 1rem;
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 1rem;
-  outline: none;
-}
-
-.search-box button {
-  background: transparent;
-  border: none;
-  padding: 0 1.5rem;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
+.left-section span {
+  color: #d079f9;
 }
 
 .action-buttons {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-primary {
-  background-color: #00bfff;
-  border: none;
-  padding: 0.8rem 1.5rem;
+  background-color: #d079f9;
   color: white;
-  font-weight: bold;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
+  border: none;
 }
 
 .btn-primary:hover {
-  background-color: #009acd;
+  background-color: #d079f9;
 }
 
 .btn-secondary {
-  background: transparent;
-  border: 1px solid #999;
-  padding: 0.8rem 1.5rem;
-  color: white;
+  background-color: #393953;
+  color: #ddd;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #2c2c44;
+}
+
+/* === Right Section === */
+.right-section {
+  flex: 1;
+  padding: 40px 30px;
+  background-color: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: #d079f9;
+}
+
+.right-section h2 {
+  font-size: 1.8rem;
+  color: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+.right-section p {
+  color: #cccccc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1a2e;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.5rem;
   font-weight: bold;
-  border-radius: 30px;
+  color: #ffffff;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #d079f9;
+}
+
+/* === Hero Section === */
+.hero-section {
+  background-color: #0f0f1f;
+  padding: 3rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 300px;
+  margin-right: 2rem;
+}
+
+.left-column h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.left-column p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 0.75rem 2rem;
+  background-color: #d079f9;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #d079f9;
+}
+
+/* === Right Form === */
+.right-column {
+  background: #2a2a3d;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  max-width: 400px;
+}
+
+.right-column h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.query-form input,
+.query-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #d079f9;
+  background-color: #1f1f2f;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.query-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.query-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #d079f9;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.btn-secondary:hover {
-  background-color: #333;
+.query-form button:hover {
+  background-color: #6a1bbf;
 }
 
-/* Right Section */
-.right-section {
-  flex: 1;
-  text-align: right;
-}
-
-.right-section .icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #7f5af0;
-}
-
-.right-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.right-section p {
-  font-size: 1rem;
-  max-width: 400px;
-  margin-left: auto;
-  color: #bbb;
-}
-
-/* Responsive */
+/* === Responsive Design === */
 @media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .left-column, .right-column {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+
   .content-wrapper {
     flex-direction: column;
-    text-align: center;
   }
+}
+.nav-button-link {
+  background: none;
+  border: none;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
 
-  .right-section {
-    text-align: center;
-  }
+.nav-button-link:hover {
+  color: #d079f9;
+}
+.features-section {
+  background-color: #0e0e25;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
 
-  .right-section p {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #bbbbcc;
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: #1c1c3b;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #6f61ea;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #dcdcdc;
+  line-height: 1.5;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.left-column {
+  max-width: 900px;
+  padding: 2rem;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.left-column h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #7264f1;
+  line-height: 1.2;
+}
+
+.left-column p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color:white;
+}
+
+.left-column p:nth-of-type(2) {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-left: 4px solid #5240f4;
+  border-radius: 6px;
+}
+
+.cta-button {
+  background-color: #5240f4;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+  background-color: #5240f4;
+  transform: translateY(-2px);
+}
+/* Hero Banner */
+.hero-title-banner {
+  background-image: url('https://emeritus.org/in/wp-content/uploads/sites/3/2024/10/ISB-HRAI-800x314-1-768x301.png');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title-banner .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.hero-heading {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  max-width: 80%;
+}
+
+/* Content Section */
+.content-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem;
+  background-color: #1c1c3b;
+  gap: 2rem;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  min-width: 300px;
+  color:white;
+}
+
+.left-column p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.2rem;
+  color:white;
+}
+
+.features-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+  color:white;
+  
+}
+
+.features-list li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color:white;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #695cf3;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #4b46d4;
+}
+
+/* Query Form */
+.query-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.query-form input,
+.query-form textarea {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.query-form button {
+  background-color: #f5a623;
+  color: #fff;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.query-form button:hover {
+  background-color: #e5941a;
 }

@@ -408,3 +408,133 @@ tr:hover {
     align-items: center;
   }
 }
+.profile-photo-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+.choose-text {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.homework-upload {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.homework-upload h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.homework-upload label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.homework-upload select {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 5px;
+  background-color: #f8f9fa;
+  transition: border 0.3s;
+}
+
+.homework-upload select:focus {
+  border-color: #5e72e4;
+  outline: none;
+}
+
+.homework-upload p {
+  background-color: #f1f2f6;
+  padding: 12px;
+  border-left: 4px solid #5e72e4;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+.homework-upload input[type="file"] {
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+.homework-upload button {
+  margin-top: 16px;
+  padding: 12px 18px;
+  background: linear-gradient(to right, #5e72e4, #825ee4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.homework-upload button:hover {
+  transform: scale(1.03);
+  background: linear-gradient(to right, #4b62d4, #7352d4);
+}
+
+.homework-upload button:disabled {
+  background: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.uploaded-section {
+  margin-top: 32px;
+}
+
+.uploaded-section h3 {
+  color: #2d3436;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.uploaded-section h4 {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #5e72e4;
+}
+
+.uploaded-section ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.uploaded-section li {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #444;
+}

@@ -214,6 +214,7 @@ button {
   color: white;
   border: none;
   border-radius: 50px;
+  display: inline-flex;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.25, 0.885, 0.32, 1.275);

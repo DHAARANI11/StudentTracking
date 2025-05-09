@@ -11,6 +11,8 @@
   --glass-dark: rgba(0, 0, 0, 0.3);
 }
 
+
+
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -240,6 +242,65 @@
   color: var(--secondary);
   text-decoration: underline;
 }
+
+.role-selection {
+  margin: 20px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.role-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.role-options {
+  display: flex;
+  gap: 20px;
+}
+
+.role-option {
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+  color: #1f2937;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.role-option:hover {
+  background: linear-gradient(135deg, #4361ee, #7f5af0);
+}
+
+.role-radio {
+  display: none;
+}
+
+.role-radio:checked + .role-text {
+  background: linear-gradient(135deg, #4361ee, #7f5af0);
+  font-weight: 600;
+}
+
+.role-radio:checked ~ .role-option {
+  background: linear-gradient(135deg, #4361ee, #7f5af0);
+  color: black;
+  border-color: #2563eb;
+}
+
+.role-text {
+  color:white;
+  display: block;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
 
 /* === Login Button === */
 .login-btn {

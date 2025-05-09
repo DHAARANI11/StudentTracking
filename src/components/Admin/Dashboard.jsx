@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AddDeleteUsers from './AddDeleteUsers';
 import Allocation from './Allocation';
 import "../../styles/admin.css";
+import Footer from '../Common/Footer';
 
 
 function AdminDashboard() {
@@ -23,6 +24,7 @@ function AdminDashboard() {
         {activeTab === 'manage' && <AddDeleteUsers />}
         {activeTab === 'allocate' && <Allocation />}
       </main>
+      <Footer/>
     </div>
   );
 }

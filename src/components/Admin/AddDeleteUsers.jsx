@@ -7,7 +7,7 @@ function AddDeleteUsers() {
     id: '',
     name: '',
     email: '',
-    class:'',
+    class: '',
     role: 'student',
     password: ''
   });
@@ -24,7 +24,7 @@ function AddDeleteUsers() {
         id: '',
         name: '',
         email: '',
-        class:'',
+        class: '',
         role: 'student',
         password: ''
       });
@@ -35,10 +35,49 @@ function AddDeleteUsers() {
     setUsers(users.filter(user => user.id !== id));
   };
 
+  const students = users.filter(user => user.role === 'student');
+  const staff = users.filter(user => user.role === 'staff');
+
+  const renderTable = (title, data) => (
+    <div className="users-list">
+      <h3>{title}</h3>
+      {data.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Class</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map(user => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.class}</td>
+                <td>{user.role}</td>
+                <td>
+                  <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No {title.toLowerCase()} available.</p>
+      )}
+    </div>
+  );
+
   return (
     <div className="manage-users">
       <h2>Manage Users</h2>
-      
+
       <div className="add-user-form">
         <h3>Add New User</h3>
         <input
@@ -56,6 +95,7 @@ function AddDeleteUsers() {
           onChange={handleInputChange}
         />
         <select name="class" value={newUser.class} onChange={handleInputChange}>
+          <option value="">Select Class</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -76,35 +116,8 @@ function AddDeleteUsers() {
         <button onClick={handleAddUser}>Add User</button>
       </div>
 
-      <div className="users-list">
-        <h3>Users List</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Class</th>
-              <th>Role</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.class}</td>
-                <td>{user.role}</td>
-                <td>
-                  <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {renderTable('Students List', students)}
+      {renderTable('Staff List', staff)}
     </div>
   );
 }

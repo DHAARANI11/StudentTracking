@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "../../styles/student.css";
-
 
 function Profile() {
   const [profile, setProfile] = useState({
@@ -9,25 +8,59 @@ function Profile() {
     class: 'Class 1',
     email: 'alice.johnson@school.com',
     phone: '9876543210',
-    address: '123 Main St, Cityville'
+    address: '123 Main St, Cityville',
+    photo: null
   });
 
   const [editMode, setEditMode] = useState(false);
+  const [photoPreview, setPhotoPreview] = useState(null);
+  const fileInputRef = useRef(null); // for triggering file input
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
 
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfile({ ...profile, photo: file });
+      setPhotoPreview(URL.createObjectURL(file));
+    }
+  };
+
   const handleSave = () => {
     setEditMode(false);
-    // In a real app, you would save to the backend here
+    // Save to backend logic can go here
   };
 
   return (
     <div className="student-profile">
       <h2>My Profile</h2>
-      
+
+      {/* === Profile Photo Section === */}
+      <div className="profile-photo-section">
+      <img
+          src={photoPreview || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}
+          alt="Profile"
+          className="profile-photo"
+          onClick={() => editMode && fileInputRef.current.click()}
+        />
+        {editMode && (
+          <>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              ref={fileInputRef}
+              style={{ display: 'none' }} // hide actual input
+            />
+            <p className="choose-text">Click photo to choose from gallery</p>
+          </>
+        )}
+      </div>
+
+      {/* === Profile Info === */}
       <div className="profile-info">
         {editMode ? (
           <>

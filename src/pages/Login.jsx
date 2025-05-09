@@ -14,12 +14,15 @@ function Login() {
   // Hardcoded user database
   const userDatabase = {
     // Students
-    'alice': { password: 'alice123', role: 'student', name: 'Alice Johnson' },
-    'bob': { password: 'bob123', role: 'student', name: 'Bob Smith' },
-    
+    'dhaarani': { password: 'd123', role: 'student', name: 'Dhaarani M' },
+    'dharshini': { password: 'd123', role: 'student', name: 'Dharshini M' },
+
     // Faculty
-    'john': { password: 'math123', role: 'faculty', name: 'John Doe' },
-    'jane': { password: 'science123', role: 'faculty', name: 'Jane Smith' }
+    'john': { password: 'j123', role: 'faculty', name: 'John Doe' },
+    'jane': { password: 'j123', role: 'faculty', name: 'Jane Smith' },
+
+    // Admin
+    'admin': { password: 'admin123', role: 'admin', name: 'Administrator' }
   };
 
   const handleInputChange = (e) => {
@@ -34,35 +37,33 @@ function Login() {
     e.preventDefault();
     setError('');
 
-    // Check if user exists
     const user = userDatabase[formData.username];
-    
+
     if (!user) {
       setError('Username not found');
       return;
     }
 
-    // Check password
     if (user.password !== formData.password) {
       setError('Incorrect password');
       return;
     }
 
-    // Check role (if explicitly selected)
     if (formData.role && user.role !== formData.role) {
       setError(`This account is for ${user.role}s, not ${formData.role}s`);
       return;
     }
 
-    // Store user data and redirect
     localStorage.setItem('currentUser', JSON.stringify({
       username: formData.username,
       name: user.name,
       role: user.role
     }));
 
-    // Redirect based on role
-    if (user.role === 'faculty') {
+    // Navigate based on role
+    if (user.role === 'admin') {
+      navigate('/admin/dashboard');
+    } else if (user.role === 'faculty') {
       navigate('/staff/dashboard');
     } else {
       navigate('/student/dashboard');
@@ -70,18 +71,18 @@ function Login() {
   };
 
   return (
-    <div className="login-container"> {/* Main container */}
-      <div className="login-card"> {/* Card container */}
-        <div className="login-header"> {/* Header section */}
+    <div className="admin-auth-container">
+      <div className="login-card">
+        <div className="login-header">
           <h1 className="login-title">School Portal Login</h1>
           <p className="login-subtitle">Access your educational resources</p>
         </div>
 
-        {error && <div className="error-message">{error}</div>} {/* Error display */}
+        {error && <div className="error-message">{error}</div>}
 
-        <form className="login-form" onSubmit={handleSubmit}> {/* Form container */}
-          <div className="form-group"> {/* Username input group */}
-            <label className="form-label" htmlFor="username">Username</label>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">Username</label>
             <input
               className="form-input"
               type="text"
@@ -94,8 +95,8 @@ function Login() {
             />
           </div>
 
-          <div className="form-group"> {/* Password input group */}
-            <label className="form-label" htmlFor="password">Password</label>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">Password</label>
             <input
               className="form-input"
               type="password"
@@ -108,12 +109,11 @@ function Login() {
             />
           </div>
 
-          <div className="form-group role-selection"> {/* Role selection */}
+          <div className="form-group role-selection">
             <label className="role-label">I am a:</label>
             <div className="role-options">
               <label className="role-option">
                 <input
-                  className="role-radio"
                   type="radio"
                   name="role"
                   value="student"
@@ -122,9 +122,9 @@ function Login() {
                 />
                 <span className="role-text">Student</span>
               </label>
+
               <label className="role-option">
                 <input
-                  className="role-radio"
                   type="radio"
                   name="role"
                   value="faculty"
@@ -133,15 +133,26 @@ function Login() {
                 />
                 <span className="role-text">Faculty</span>
               </label>
+
+              <label className="role-option">
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  checked={formData.role === 'admin'}
+                  onChange={handleInputChange}
+                />
+                <span className="role-text">Admin</span>
+              </label>
             </div>
           </div>
 
-          <button type="submit" className="login-button"> {/* Submit button */}
+          <button type="submit" className="login-button">
             Log In
           </button>
         </form>
 
-        <div className="login-footer"> {/* Footer links */}
+        <div className="login-footer">
           <p className="footer-text">
             Forgot password? <a className="footer-link" href="/reset-password">Reset here</a>
           </p>
@@ -150,6 +161,7 @@ function Login() {
           </p>
         </div>
       </div>
+
     </div>
   );
 }
