@@ -151,7 +151,7 @@ function Login() {
             Log In
           </button>
         </form>
-
+        <p>Don't have an account? <a href="/admin/signup">Sign up</a></p>
         <div className="login-footer">
           <p className="footer-text">
             Forgot password? <a className="footer-link" href="/reset-password">Reset here</a>
