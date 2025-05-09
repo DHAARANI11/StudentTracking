@@ -74,7 +74,7 @@ function Login() {
     <div className="admin-auth-container">
       <div className="login-card">
         <div className="login-header">
-          <h1 className="login-title">School Portal Login</h1>
+          <h1 className="login-title">Login</h1>
           <p className="login-subtitle">Access your educational resources</p>
         </div>
 
@@ -151,7 +151,7 @@ function Login() {
             Log In
           </button>
         </form>
-
+        <p>Don't have an account? <a href="/admin/signup">Sign up</a></p>
         <div className="login-footer">
           <p className="footer-text">
             Forgot password? <a className="footer-link" href="/reset-password">Reset here</a>

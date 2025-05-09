@@ -435,17 +435,71 @@ body, html {
 
 .features-list {
   list-style: none;
-  padding-left: 0;
-  margin-bottom: 1.5rem;
-  color:white;
-  
+  padding: 0;
+  margin: 2rem auto;
+  max-width: 700px;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
 }
 
 .features-list li {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color:white;
+  background: linear-gradient(145deg, #6c6f7d, #69686a);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-size: 1.05rem;
+  color: white;
+  transition: all 0.3s ease;
+  width: fit-content;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
 }
+
+.features-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #9783f0, #c36fea);
+}
+
+.features-list li::before {
+  content: '';
+  position: absolute;
+  left: -35px;
+  font-size: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.features-list li:nth-child(2)::before {
+  content: '';
+}
+
+.features-list li:nth-child(3)::before {
+  content: '';
+}
+
+.features-list i {
+  font-style: normal;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%   { transform: translateY(-50%) translateX(0); }
+  50%  { transform: translateY(-60%) translateX(5px); }
+  100% { transform: translateY(-50%) translateX(0); }
+}
+
+/* Fun bounce animation */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
 
 .cta-button {
   display: inline-block;
