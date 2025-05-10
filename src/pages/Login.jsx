@@ -154,9 +154,6 @@ function Login() {
         <p>Don't have an account? <a href="/admin/signup">Sign up</a></p>
         <div className="login-footer">
           <p className="footer-text">
-            Forgot password? <a className="footer-link" href="/reset-password">Reset here</a>
-          </p>
-          <p className="footer-text">
             Need help? Contact <a className="footer-link" href="mailto:support@school.edu">support@school.edu</a>
           </p>
         </div>
