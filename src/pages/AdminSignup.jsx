@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignupForm from '../components/Common/SignupForm';
 import '../styles/admin.css';
+import '../styles/common.css';
 
 function AdminSignup() {
   const navigate = useNavigate();
